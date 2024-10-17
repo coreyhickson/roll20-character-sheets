@@ -32,6 +32,7 @@ calculateDiceValues.forEach(v => {
 });
 
 function calculateDice(values, rolling) {
+  debugger;
   const isBeginnersLuck = calculateBeginnersLuck(values, rolling);
 
   // Get the skill or ability
@@ -58,7 +59,7 @@ function calculateDice(values, rolling) {
 
   // Check to half for beginners luck
   if (isBeginnersLuck) {
-    rollValue = Math.floor(rollValue / 2);
+    rollValue = Math.ceil(rollValue / 2);
   }
 
   // Add traits, persona, channelled nature, conditions, etc.
@@ -79,15 +80,15 @@ function calculateDice(values, rolling) {
 
   rollValue += parseInt(values['rolling_otherdice']);
 
-  if (values['injured'] > 0) {
+  if (values['injured'] == "on") {
     rollValue -= 1;
   }
 
-  if (values['sick'] > 0) {
+  if (values['sick'] == "on") {
     rollValue -= 1;
   }
 
-  if (values['fresh'] > 0) {
+  if (values['fresh'] == "on") {
     rollValue += 1;
   }
 
