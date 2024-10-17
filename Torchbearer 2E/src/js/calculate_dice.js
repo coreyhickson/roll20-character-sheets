@@ -32,7 +32,6 @@ calculateDiceValues.forEach(v => {
 });
 
 function calculateDice(values, rolling) {
-  debugger;
   const isBeginnersLuck = calculateBeginnersLuck(values, rolling);
 
   // Get the skill or ability
